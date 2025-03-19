@@ -1,5 +1,4 @@
 const npcStarter =  document.getElementById("npcStarter") as HTMLButtonElement;
-const save = document.getElementById("save") as HTMLButtonElement;
 
 const npcDialog = document.getElementById("npcDialog") as HTMLDivElement;
 const npcDialogText = document.getElementById("npcDialogText") as HTMLParagraphElement

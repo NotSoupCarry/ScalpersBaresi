@@ -1,6 +1,5 @@
 "use strict";
 const npcStarter = document.getElementById("npcStarter");
-const save = document.getElementById("save");
 const npcDialog = document.getElementById("npcDialog");
 const npcDialogText = document.getElementById("npcDialogText");
 const closeNpcDialog = document.getElementById("closeNpcDialog");

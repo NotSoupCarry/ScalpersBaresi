@@ -50,8 +50,8 @@ function startMiniGame(): void {
             clicked = true;
             kills++;
             miniGameDiv.style.display = "none";
-              localStorage.setItem("kills", kills.toString()); // Salvo le kill
-            mostraFinale(kills, sceltaIniziale); // Vai direttamente al finale
+            localStorage.setItem("kills", kills.toString()); // Salvo le kill
+            mostraFinale(); // Vai direttamente al finale
         }
     });
 
@@ -59,11 +59,11 @@ function startMiniGame(): void {
     setTimeout(() => {
         if (!clicked) {
             miniGameDiv.style.display = "none";
-              localStorage.setItem("kills", kills.toString()); // Salvo le kill
-            mostraFinale(kills, sceltaIniziale); // Vai direttamente al finale
+            localStorage.setItem("kills", kills.toString()); // Salvo le kill
+            mostraFinale(); // Vai direttamente al finale
         }
     }, 3000);
-
+}
 
 
 // Funzione per mostrare il finale
@@ -103,14 +103,10 @@ btnBuono.addEventListener("click", () => choosePath("buono"));
 btnCattivo.addEventListener("click", () => choosePath("cattivo"));
 
 // Eventi per le scelte secondarie
-btnBuonoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
+btnBuonoNoKill.addEventListener("click", () => mostraFinale());
 btnBuonoKill.addEventListener("click", startMiniGame);
-btnCattivoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
+btnCattivoNoKill.addEventListener("click", () => mostraFinale());
 btnCattivoKill.addEventListener("click", startMiniGame);
-btnBuonoNoKill.addEventListener("click", mostraFinale);
-btnBuonoKill.addEventListener("click", commitKill);
-btnCattivoNoKill.addEventListener("click", mostraFinale);
-btnCattivoKill.addEventListener("click", commitKill);
 
 
 
@@ -127,4 +123,5 @@ window.onload = function () {
     } else if (sceltaIniziale === "cattivo") {
         choosePath("cattivo");
     }
-};
+}
+
