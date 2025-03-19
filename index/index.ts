@@ -32,15 +32,15 @@ function choosePath(choice: string): void {
     primaSceltaDiv.style.display = "none";
 
     if (choice === "buono") {
-        secondo_Buono.style.display = "block";
+        secondo_Buono.style.display = "inline-block";
     } else {
-        secondo_Cattivo.style.display = "block";
+        secondo_Cattivo.style.display = "inline-block";
     }
 }
 
 // Funzione per avviare il minigioco
 function startMiniGame(): void {
-    miniGameDiv.style.display = "block";
+    miniGameDiv.style.display = "inline-block";
 
     let clicked = false;
 
@@ -72,7 +72,7 @@ function mostraFinale(): void {
     primaSceltaDiv.style.display = "none";
     secondo_Buono.style.display = "none";
     secondo_Cattivo.style.display = "none";
-    finale.style.display = "block";
+    finale.style.display = "inline-block";
     home.style.display = "none";
 
     let messaggio: string;
