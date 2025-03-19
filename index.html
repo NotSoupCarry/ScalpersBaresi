@@ -4,8 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
-    <title>Gioco di Scelte</title>
+    <title>Scalpers Baresi</title>
+    <style>
+        #secondo_Buono, #secondo_Cattivo, #finale, #miniGame {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,28 +18,34 @@
 
         <!-- Scelta iniziale: Buono o Cattivo -->
         <div id="primo">
-            <div>
-                <button id="btnBuono">Sei Buono</button>
-                <button id="btnCattivo">Sei Cattivo</button>
-            </div>
+            <h1>Scegli il tuo percorso</h1>
+            <button id="btnBuono">Buono</button>
+            <button id="btnCattivo">Cattivo</button>
         </div>
 
         <!-- Scelte successive per il Percorso Buono -->
-        <div id="secondo_Buono" style="display: none;">
-            <p>Hai scelto di essere buono. Cosa vuoi fare?</p>
-            <button id="btnBuonoNoKill">Non Uccidere</button>
-            <button id="btnBuonoKill">Uccidi (Kill++)</button>
+        <div id="secondo_Buono">
+            <h2>Hai scelto di essere buono. Cosa vuoi fare?</h2>
+            <button id="btnBuonoNoKill">Non uccidere</button>
+            <button id="btnBuonoKill">Uccidi</button>
         </div>
 
         <!-- Scelte successive per il Percorso Cattivo -->
-        <div id="secondo_Cattivo" style="display: none;">
-            <p>Hai scelto di essere cattivo. Cosa vuoi fare?</p>
-            <button id="btnCattivoNoKill">Non Uccidere</button>
-            <button id="btnCattivoKill">Uccidi (Kill++)</button>
+        <div id="secondo_Cattivo">
+            <h2>Hai scelto di essere cattivo. Cosa vuoi fare?</h2>
+            <button id="btnCattivoNoKill">Non uccidere</button>
+            <button id="btnCattivoKill">Uccidi</button>
+        </div>
+
+        <!-- Minigioco -->
+        <div id="miniGame">
+            <p>Hai 3 secondi per cliccare!</p>
+            <button id="miniGameButton">Clicca velocemente!</button>
         </div>
 
         <!-- Finale -->
-        <div id="finale" style="display: none;">
+        <div id="finale">
+            <h1>Finale</h1>
             <p id="finaleText">FINALE</p>
             <p id="outputFinale"></p>
             <button id="refreshButton">Ricarica Pagina</button>

@@ -9,6 +9,10 @@ const secondo_Buono = document.getElementById("secondo_Buono") as HTMLDivElement
 const secondo_Cattivo = document.getElementById("secondo_Cattivo") as HTMLDivElement;
 const finale = document.getElementById("finale") as HTMLDivElement;
 const outputParagraph = document.getElementById("outputFinale") as HTMLParagraphElement;
+
+// Recupero degli elementi HTML per il minigioco
+const miniGameDiv = document.getElementById("miniGame") as HTMLDivElement;
+const miniGameButton = document.getElementById("miniGameButton") as HTMLButtonElement;
 const refreshButton = document.getElementById('refreshButton') as HTMLButtonElement;
 
 // Pulsanti per la prima scelta
@@ -34,12 +38,33 @@ function choosePath(choice: string): void {
     }
 }
 
-// Funzione per uccidere (incrementa le kill)
-function commitKill(): void {
-    kills++;
-    localStorage.setItem("kills", kills.toString()); // Salvo le kill
-    mostraFinale();
-}
+// Funzione per avviare il minigioco
+function startMiniGame(): void {
+    miniGameDiv.style.display = "block";
+
+    let clicked = false;
+
+    // Evento per il clic sul pulsante
+    miniGameButton.addEventListener("click", () => {
+        if (!clicked) {
+            clicked = true;
+            kills++;
+            miniGameDiv.style.display = "none";
+              localStorage.setItem("kills", kills.toString()); // Salvo le kill
+            mostraFinale(kills, sceltaIniziale); // Vai direttamente al finale
+        }
+    });
+
+    // Timer per il limite di tempo
+    setTimeout(() => {
+        if (!clicked) {
+            miniGameDiv.style.display = "none";
+              localStorage.setItem("kills", kills.toString()); // Salvo le kill
+            mostraFinale(kills, sceltaIniziale); // Vai direttamente al finale
+        }
+    }, 3000);
+
+
 
 // Funzione per mostrare il finale
 function mostraFinale(): void {
@@ -78,6 +103,10 @@ btnBuono.addEventListener("click", () => choosePath("buono"));
 btnCattivo.addEventListener("click", () => choosePath("cattivo"));
 
 // Eventi per le scelte secondarie
+btnBuonoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
+btnBuonoKill.addEventListener("click", startMiniGame);
+btnCattivoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
+btnCattivoKill.addEventListener("click", startMiniGame);
 btnBuonoNoKill.addEventListener("click", mostraFinale);
 btnBuonoKill.addEventListener("click", commitKill);
 btnCattivoNoKill.addEventListener("click", mostraFinale);
