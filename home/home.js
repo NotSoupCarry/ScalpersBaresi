@@ -6,7 +6,8 @@ const closeNpcDialog = document.getElementById("closeNpcDialog");
 const sleepMenu = document.getElementById("sleepMenu");
 const sleepStarter = document.getElementById("sleepStarter");
 const sleepText = document.getElementById("sleepText");
-// Funzione per avviare il dialogo
+const return_index = document.getElementById("return_index");
+// Funzione per avviare il dialogo 
 function startDialog() {
     npcDialogText.textContent = "si proprj nu trmon";
     npcDialog.style.display = "inline-block";
@@ -25,12 +26,13 @@ function sleep() {
     npcStarter.style.display = "none";
     npcDialog.style.display = "none";
     sleepStarter.style.display = "none";
+    return_index.style.display = "none";
     sleepText.textContent = "zzz";
     setTimeout(() => {
         sleepText.textContent = "HAI RIPOSATO";
         setTimeout(() => {
             location.reload();
-        }, 2000);
+        }, 1000);
     }, 5000);
 }
 // Aggiungi event listener ai bottoni
