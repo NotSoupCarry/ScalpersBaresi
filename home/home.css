@@ -1,0 +1,109 @@
+/* Stile generale */
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+main {
+    position: relative;
+}
+
+/* Stile per il pulsante */
+#npcStarter {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#npcStarter:hover {
+    background-color: #45a049;
+}
+
+/* Stile per l'NPC (immagine) */
+#npcCharacter {
+    width: 300px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Stile per la finestra di dialogo */
+#npcDialog {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+#npcDialogText {
+    margin-bottom: 10px;
+}
+
+#closeNpcDialog {
+    background-color: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#closeNpcDialog:hover {
+    background-color: #cc0000;
+}
+
+/* Stile per il link di ritorno */
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Stile per il pulsante "Dormi" */
+#sleepStarter {
+    background-color: #4C74AF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#sleepStarter:hover {
+    background-color: #3b5c8a;
+}
+
+/* Stile per il testo del sonno */
+#sleepText {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #bfbfbf;
+}

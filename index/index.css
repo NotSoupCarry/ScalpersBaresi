@@ -1,0 +1,104 @@
+/* Stile generale */
+body {
+    background-color: #1a1a1a; /* Sfondo scuro */
+    color: #ffffff; /* Testo bianco */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+/* Link alla home */
+#home {
+    display: inline-block;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#home:hover {
+    background-color: #45a049; /* Verde più scuro */
+}
+
+/* Sezioni */
+div {
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.8); /* Sfondo trasparente scuro */
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Titoli */
+h1, h2 {
+    color: #4CAF50; /* Verde */
+}
+
+/* Pulsanti */
+button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50; /* Verde */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #45a049; /* Verde più scuro */
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #3e8e41; /* Verde ancora più scuro */
+}
+
+/* Minigioco */
+#miniGame p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+#miniGameButton {
+    background-color: #ff4d4d; /* Rosso */
+    color: white;
+}
+
+#miniGameButton:hover {
+    background-color: #cc0000; /* Rosso più scuro */
+}
+
+/* Finale */
+#finaleText {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50; /* Verde */
+}
+
+#outputFinale {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+#refreshButton {
+    background-color: #ff4d4d; /* Rosso */
+    color: white;
+}
+
+#refreshButton:hover {
+    background-color: #cc0000; /* Rosso più scuro */
+}
