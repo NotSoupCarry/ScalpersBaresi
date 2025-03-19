@@ -27,15 +27,15 @@ function choosePath(choice) {
     localStorage.setItem("sceltaIniziale", choice); // Salvo la scelta iniziale
     primaSceltaDiv.style.display = "none";
     if (choice === "buono") {
-        secondo_Buono.style.display = "block";
+        secondo_Buono.style.display = "inline-block";
     }
     else {
-        secondo_Cattivo.style.display = "block";
+        secondo_Cattivo.style.display = "inline-block";
     }
 }
 // Funzione per avviare il minigioco
 function startMiniGame() {
-    miniGameDiv.style.display = "block";
+    miniGameDiv.style.display = "inline-block";
     let clicked = false;
     // Evento per il clic sul pulsante
     miniGameButton.addEventListener("click", () => {
@@ -62,7 +62,7 @@ function mostraFinale() {
     primaSceltaDiv.style.display = "none";
     secondo_Buono.style.display = "none";
     secondo_Cattivo.style.display = "none";
-    finale.style.display = "block";
+    finale.style.display = "inline-block";
     home.style.display = "none";
     let messaggio;
     switch (`${kills}-${sceltaIniziale}`) {
