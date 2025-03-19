@@ -9,47 +9,57 @@
         #secondo_Buono, #secondo_Cattivo, #finale, #miniGame {
             display: none;
         }
+        img {
+            max-width: 75%;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
     </style>
     <link href="index.css" rel="stylesheet" >
 </head>
 
 <body>
     <main>
-        <a href="/home/home.html" id="home">Vai alla Home</a>
+        <a href="/home/home.html" id="home">Vai alla Home</a><br>
 
         <!-- Scelta iniziale: Buono o Cattivo -->
         <div id="primo">
             <h1>Scegli il tuo percorso</h1>
-            <button id="btnBuono">Buono</button>
-            <button id="btnCattivo">Cattivo</button>
+            <button id="btnBuono">Buono</button><br>
+            <button id="btnCattivo">Cattivo</button><br>
         </div>
 
         <!-- Scelte successive per il Percorso Buono -->
         <div id="secondo_Buono">
             <h2>Hai scelto di essere buono. Cosa vuoi fare?</h2>
-            <button id="btnBuonoNoKill">Non uccidere</button>
-            <button id="btnBuonoKill">Uccidi</button>
+            <img src="/assets/Cartoon_Angel_with_Bow_PNG_Clipart.png" alt="Percorso Buono">
+            <button id="btnBuonoNoKill">Non uccidere</button><br>
+            <button id="btnBuonoKill">Uccidi</button><br>
         </div>
 
         <!-- Scelte successive per il Percorso Cattivo -->
         <div id="secondo_Cattivo">
             <h2>Hai scelto di essere cattivo. Cosa vuoi fare?</h2>
-            <button id="btnCattivoNoKill">Non uccidere</button>
-            <button id="btnCattivoKill">Uccidi</button>
+            <img src="/assets/devil-icon-25.png" alt="Percorso Cattivo">
+            <button id="btnCattivoNoKill">Non uccidere</button> <br>
+            <button id="btnCattivoKill">Uccidi</button> <br>
         </div>
 
         <!-- Minigioco -->
         <div id="miniGame">
             <p>Hai 3 secondi per cliccare!</p>
-            <button id="miniGameButton">Clicca velocemente!</button>
+            <img src="/assets/chronometer-timer-counter-free-png.webp" alt="Minigioco">
+            <button id="miniGameButton">Clicca velocemente!</button><br>
         </div>
 
         <!-- Finale -->
         <div id="finale">
             <h1>Finale</h1>
+            <img src="/assets/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="Finale">
             <p id="finaleText">FINALE</p>
             <p id="outputFinale"></p>
-            <button id="refreshButton">Ricarica Pagina</button>
+            <button id="refreshButton">Ricarica Pagina</button><br>
         </div>
     </main>
 
