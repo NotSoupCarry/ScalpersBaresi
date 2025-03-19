@@ -7,6 +7,7 @@ const return_index = document.getElementById("return_index") as HTMLAnchorElemen
 const sleepStarter = document.getElementById("sleepStarter") as HTMLButtonElement;
 const sleepText = document.getElementById("sleepText") as HTMLParagraphElement;
 const sleepMenu = document.getElementById("sleepMenu") as HTMLDivElement;
+const imgSleep = document.getElementById("imgSleep") as HTMLImageElement;
 
 img.style.display = "none";
 
@@ -20,6 +21,7 @@ function startDialog() {
     img.style.display = "block";
     closeNpcDialog.style.display = "inline-block";
     sleepMenu.style.display = "none";
+    imgSleep.style.display = "none";
 }
 
 // Funzione per chiudere il dialogo
@@ -41,6 +43,7 @@ function sleep() {
     sleepStarter.style.display = "none";
     return_index.style.display = "none";
     sleepText.textContent = "zzz";
+    imgSleep.style.display = "inline-block";
 
     setTimeout(() => {
         sleepText.textContent = "HAI RIPOSATO";
