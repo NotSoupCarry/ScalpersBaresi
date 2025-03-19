@@ -11,6 +11,9 @@ const finaleDiv = document.getElementById("finale");
 const finaleText = document.getElementById("finaleText");
 const finale = document.getElementById("finale");
 const outputParagraph = document.getElementById("outputFinale");
+// Recupero degli elementi HTML per il minigioco
+const miniGameDiv = document.getElementById("miniGame");
+const miniGameButton = document.getElementById("miniGameButton");
 // Pulsanti per la prima scelta
 const btnBuono = document.getElementById("btnBuono");
 const btnCattivo = document.getElementById("btnCattivo");
@@ -31,9 +34,30 @@ function choosePath(choice) {
     }
 }
 // Funzione per uccidere (incrementa il contatore delle kill)
-function commitKill() {
+/*function commitKill(): void {
     kills++;
-    mostraFinale(kills, sceltaIniziale);
+    mostraFinale(kills, sceltaIniziale)
+}*/
+// Funzione per avviare il minigioco
+function startMiniGame() {
+    miniGameDiv.style.display = "block";
+    let clicked = false;
+    // Evento per il clic sul pulsante
+    miniGameButton.addEventListener("click", () => {
+        if (!clicked) {
+            clicked = true;
+            kills++;
+            miniGameDiv.style.display = "none";
+            mostraFinale(kills, sceltaIniziale); // Vai direttamente al finale
+        }
+    });
+    // Timer per il limite di tempo
+    setTimeout(() => {
+        if (!clicked) {
+            miniGameDiv.style.display = "none";
+            mostraFinale(kills, sceltaIniziale); // Vai direttamente al finale
+        }
+    }, 3000);
 }
 // Eventi per la scelta iniziale
 btnBuono.addEventListener("click", () => choosePath("buono"));
@@ -65,6 +89,6 @@ function mostraFinale(kills, sceltaIniziale) {
 }
 // Eventi per le scelte secondarie
 btnBuonoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
-btnBuonoKill.addEventListener("click", commitKill);
+btnBuonoKill.addEventListener("click", startMiniGame);
 btnCattivoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
-btnCattivoKill.addEventListener("click", commitKill);
+btnCattivoKill.addEventListener("click", startMiniGame);

@@ -14,6 +14,9 @@ const finaleText = document.getElementById("finaleText") as HTMLParagraphElement
 const finale = document.getElementById("finale") as HTMLDivElement;
 const outputParagraph = document.getElementById("outputFinale") as HTMLParagraphElement;
 
+// Recupero degli elementi HTML per il minigioco
+const miniGameDiv = document.getElementById("miniGame") as HTMLDivElement;
+const miniGameButton = document.getElementById("miniGameButton") as HTMLButtonElement;
 
 // Pulsanti per la prima scelta
 const btnBuono = document.getElementById("btnBuono") as HTMLButtonElement;
@@ -37,10 +40,29 @@ function choosePath(choice: string): void {
     }
 }
 
-// Funzione per uccidere (incrementa il contatore delle kill)
-function commitKill(): void {
-    kills++;
-    mostraFinale(kills, sceltaIniziale)
+// Funzione per avviare il minigioco
+function startMiniGame(): void {
+    miniGameDiv.style.display = "block";
+
+    let clicked = false;
+
+    // Evento per il clic sul pulsante
+    miniGameButton.addEventListener("click", () => {
+        if (!clicked) {
+            clicked = true;
+            kills++;
+            miniGameDiv.style.display = "none";
+            mostraFinale(kills, sceltaIniziale); // Vai direttamente al finale
+        }
+    });
+
+    // Timer per il limite di tempo
+    setTimeout(() => {
+        if (!clicked) {
+            miniGameDiv.style.display = "none";
+            mostraFinale(kills, sceltaIniziale); // Vai direttamente al finale
+        }
+    }, 3000);
 }
 
 // Eventi per la scelta iniziale
@@ -78,8 +100,8 @@ function mostraFinale(kills: number, sceltaIniziale: string): void {
 
 // Eventi per le scelte secondarie
 btnBuonoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
-btnBuonoKill.addEventListener("click", commitKill);
+btnBuonoKill.addEventListener("click", startMiniGame);
 btnCattivoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
-btnCattivoKill.addEventListener("click", commitKill);
+btnCattivoKill.addEventListener("click", startMiniGame);
 
 
