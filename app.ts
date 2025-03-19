@@ -11,6 +11,5 @@ function mostraFinale(kills: number, sceltaIniziale: number): void{
     secondo_Cattivo.style.display = "none";
     finale.style.display = "block";
 
-    
 
 }
