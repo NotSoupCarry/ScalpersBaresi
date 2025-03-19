@@ -1,22 +1,23 @@
-main{
-    text-align: center;
-    padding: 20px;
-}
 /* Stile generale */
 body {
+    background-color: #1a1a1a; /* Sfondo scuro */
+    color: #ffffff; /* Testo bianco */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
     text-align: center;
 }
+
+main {
+    padding: 20px;
+}
+
 /* Link alla home */
 #home {
     display: inline-block;
     margin-bottom: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #4CAF50; /* Verde */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -24,23 +25,23 @@ body {
 }
 
 #home:hover {
-    background-color: #0056b3;
+    background-color: #45a049; /* Verde più scuro */
 }
 
 /* Sezioni */
 div {
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #333;
     border-radius: 10px;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.8); /* Sfondo trasparente scuro */
     max-width: 500px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 /* Titoli */
 h1, h2 {
-    color: #444;
+    color: #4CAF50; /* Verde */
 }
 
 /* Pulsanti */
@@ -50,7 +51,7 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     color: white;
-    background-color: #28a745;
+    background-color: #4CAF50; /* Verde */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -58,12 +59,12 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #45a049; /* Verde più scuro */
     transform: scale(1.05);
 }
 
 button:active {
-    background-color: #1e7e34;
+    background-color: #3e8e41; /* Verde ancora più scuro */
 }
 
 /* Minigioco */
@@ -73,19 +74,19 @@ button:active {
 }
 
 #miniGameButton {
-    background-color: #ffc107;
-    color: #333;
+    background-color: #ff4d4d; /* Rosso */
+    color: white;
 }
 
 #miniGameButton:hover {
-    background-color: #e0a800;
+    background-color: #cc0000; /* Rosso più scuro */
 }
 
 /* Finale */
 #finaleText {
     font-size: 24px;
     font-weight: bold;
-    color: #555;
+    color: #4CAF50; /* Verde */
 }
 
 #outputFinale {
@@ -94,9 +95,10 @@ button:active {
 }
 
 #refreshButton {
-    background-color: #dc3545;
+    background-color: #ff4d4d; /* Rosso */
+    color: white;
 }
 
 #refreshButton:hover {
-    background-color: #c82333;
+    background-color: #cc0000; /* Rosso più scuro */
 }
