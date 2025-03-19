@@ -1,6 +1,7 @@
 // Inizializzazione delle variabili
 let kills: number = 0;
-let sceltaIniziale: string | null = null;
+let sceltaIniziale: string;
+let arrayScelte: string[] = []; // Array di stringhe
 
 // Recupero degli elementi HTML
 const primaSceltaDiv = document.getElementById("primo") as HTMLDivElement;
@@ -9,7 +10,6 @@ const secondo_Cattivo = document.getElementById("secondo_Cattivo") as HTMLDivEle
 
 const finaleDiv = document.getElementById("finale") as HTMLDivElement;
 const finaleText = document.getElementById("finaleText") as HTMLParagraphElement;
-const restartBtn = document.getElementById("restart") as HTMLButtonElement;
 
 const finale = document.getElementById("finale") as HTMLDivElement;
 const outputParagraph = document.getElementById("outputFinale") as HTMLParagraphElement;
@@ -30,7 +30,6 @@ function choosePath(choice: string): void {
     sceltaIniziale = choice;
     primaSceltaDiv.style.display = "none";
 
-
     if (choice === "buono") {
         secondo_Buono.style.display = "block";
     } else {
@@ -41,33 +40,45 @@ function choosePath(choice: string): void {
 // Funzione per uccidere (incrementa il contatore delle kill)
 function commitKill(): void {
     kills++;
-    mostraFinale();
 }
 
 // Eventi per la scelta iniziale
 btnBuono.addEventListener("click", () => choosePath("buono"));
 btnCattivo.addEventListener("click", () => choosePath("cattivo"));
 
-// Eventi per le scelte secondarie
-btnBuonoNoKill.addEventListener("click", mostraFinale);
-btnBuonoKill.addEventListener("click", commitKill);
-btnCattivoNoKill.addEventListener("click", mostraFinale);
-btnCattivoKill.addEventListener("click", commitKill);
-
-function mostraFinale(kills: number, sceltaIniziale: number): void {
+function mostraFinale(kills: number, sceltaIniziale: string): void {
     primaSceltaDiv.style.display = "none";
     secondo_Buono.style.display = "none";
     secondo_Cattivo.style.display = "none";
     finale.style.display = "block";
 
-    if (kills === 0 && sceltaIniziale === 0) {
-        outputParagraph.innerText = "Hai scelto di non uccidere nessuno. Sei un vero eroe strafighissimo!";
-    } else if (kills === 0 && sceltaIniziale === 1) {
-        outputParagraph.innerText = "Hai scelto di partire come uno stronzo, ma non hai ucciso nessuno. Sei un BASTARDINO!";
-    } else if (kills === 1 && sceltaIniziale === 0) {
-        outputParagraph.innerText = "Hai scelto di partire come buono e hai ucciso qualcuno. Sei un INFAME!";
-    } else if (kills === 1 && sceltaIniziale === 1) {
-        outputParagraph.innerText = "Hai scelto di partire come stronzo e hai ucciso qualcuno. Sei uno SCALPER!";
+    let messaggio: string;
+
+    switch (`${kills}-${sceltaIniziale}`) {
+        case "0-buono":
+            messaggio = "Hai scelto di non uccidere nessuno. Sei un vero eroe strafighissimo!";
+            break;
+        case "0-cattivo":
+            messaggio = "Hai scelto di partire come uno stronzo, ma non hai ucciso nessuno. Sei un BASTARDINO!";
+            break;
+        case "1-buono":
+            messaggio = "Hai scelto di partire come buono e hai ucciso qualcuno. Sei un INFAME!";
+            break;
+        case "1-cattivo":
+            messaggio = "Hai scelto di partire come stronzo e hai ucciso qualcuno. Sei uno SCALPER!";
+            break;
+        default:
+            messaggio = "Finale non definito.";
+            break;
     }
 
+    outputParagraph.innerText = messaggio;
 }
+
+// Eventi per le scelte secondarie
+btnBuonoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
+btnBuonoKill.addEventListener("click", commitKill);
+btnCattivoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
+btnCattivoKill.addEventListener("click", commitKill);
+
+
