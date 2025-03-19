@@ -1,19 +1,15 @@
 // Inizializzazione delle variabili
-let kills: number = 0;
-let sceltaIniziale: string;
-let arrayScelte: string[] = []; // Array di stringhe
+let kills: number = parseInt(localStorage.getItem("kills") || "0"); // Recupero le kill salvate
+let sceltaIniziale: string | null = localStorage.getItem("sceltaIniziale"); // Recupero la scelta salvata
 
 // Recupero degli elementi HTML
+const home = document.getElementById("home") as HTMLAnchorElement;
 const primaSceltaDiv = document.getElementById("primo") as HTMLDivElement;
 const secondo_Buono = document.getElementById("secondo_Buono") as HTMLDivElement;
 const secondo_Cattivo = document.getElementById("secondo_Cattivo") as HTMLDivElement;
-
-const finaleDiv = document.getElementById("finale") as HTMLDivElement;
-const finaleText = document.getElementById("finaleText") as HTMLParagraphElement;
-
 const finale = document.getElementById("finale") as HTMLDivElement;
 const outputParagraph = document.getElementById("outputFinale") as HTMLParagraphElement;
-
+const refreshButton = document.getElementById('refreshButton') as HTMLButtonElement;
 
 // Pulsanti per la prima scelta
 const btnBuono = document.getElementById("btnBuono") as HTMLButtonElement;
@@ -25,9 +21,10 @@ const btnBuonoKill = document.getElementById("btnBuonoKill") as HTMLButtonElemen
 const btnCattivoNoKill = document.getElementById("btnCattivoNoKill") as HTMLButtonElement;
 const btnCattivoKill = document.getElementById("btnCattivoKill") as HTMLButtonElement;
 
-// Funzione per la scelta iniziale (buono o cattivo)
+// Funzione per la scelta iniziale
 function choosePath(choice: string): void {
     sceltaIniziale = choice;
+    localStorage.setItem("sceltaIniziale", choice); // Salvo la scelta iniziale
     primaSceltaDiv.style.display = "none";
 
     if (choice === "buono") {
@@ -37,21 +34,21 @@ function choosePath(choice: string): void {
     }
 }
 
-// Funzione per uccidere (incrementa il contatore delle kill)
+// Funzione per uccidere (incrementa le kill)
 function commitKill(): void {
     kills++;
-    mostraFinale(kills, sceltaIniziale)
+    localStorage.setItem("kills", kills.toString()); // Salvo le kill
+    mostraFinale();
 }
 
-// Eventi per la scelta iniziale
-btnBuono.addEventListener("click", () => choosePath("buono"));
-btnCattivo.addEventListener("click", () => choosePath("cattivo"));
-
-function mostraFinale(kills: number, sceltaIniziale: string): void {
+// Funzione per mostrare il finale
+function mostraFinale(): void {
+    localStorage.clear();
     primaSceltaDiv.style.display = "none";
     secondo_Buono.style.display = "none";
     secondo_Cattivo.style.display = "none";
     finale.style.display = "block";
+    home.style.display = "none";
 
     let messaggio: string;
 
@@ -76,10 +73,29 @@ function mostraFinale(kills: number, sceltaIniziale: string): void {
     outputParagraph.innerText = messaggio;
 }
 
+// Eventi per la scelta iniziale
+btnBuono.addEventListener("click", () => choosePath("buono"));
+btnCattivo.addEventListener("click", () => choosePath("cattivo"));
+
 // Eventi per le scelte secondarie
-btnBuonoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
+btnBuonoNoKill.addEventListener("click", mostraFinale);
 btnBuonoKill.addEventListener("click", commitKill);
-btnCattivoNoKill.addEventListener("click", () => mostraFinale(kills, sceltaIniziale));
+btnCattivoNoKill.addEventListener("click", mostraFinale);
 btnCattivoKill.addEventListener("click", commitKill);
 
 
+
+// Aggiungi l'evento di click
+refreshButton.addEventListener('click', () => {
+    location.reload(); // Ricarica la pagina
+});
+
+
+// **Ripristino dello stato del gioco se esiste**
+window.onload = function () {
+    if (sceltaIniziale === "buono") {
+        choosePath("buono");
+    } else if (sceltaIniziale === "cattivo") {
+        choosePath("cattivo");
+    }
+};
