@@ -1,0 +1,1 @@
+const kills: number = 0;
