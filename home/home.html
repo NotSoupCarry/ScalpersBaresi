@@ -11,12 +11,15 @@
 <body>
     <main>
 
-        <button id="npcStarter">Interagisci con npc</button>
+        <button id="npcStarter">Interagisci con NPC</button>
 
-        <div id="npcDialog">
-            <p id="npcDialogText"></p>
-            <button id="closeNpcDialog" style="display: none;">Chiudi dialogo</button>
-        </div> <br>
+        <div id="npcContainer">
+            <img id="npcCharacter" src="/assets/npc1.avif" alt="NPC">
+            <div id="npcDialog">
+                <p id="npcDialogText"></p>
+                <button class="npcbtn" id="closeNpcDialog">Chiudi dialogo</button>
+            </div>
+        </div>
 
         <div id="sleepMenu">
             <button id="sleepStarter">Dormi</button> 
@@ -26,7 +29,10 @@
         <a id="return_index" href="/index/index.html">Torna al gioco</a>
     </main>
 
+
     <script src="home.js" defer></script>
+
+
 
 </body>
 
