@@ -65,17 +65,22 @@ function mostraFinale() {
     finale.style.display = "inline-block";
     home.style.display = "none";
     let messaggio;
+    const finaleImage = document.getElementById("finalImage");
     switch (`${kills}-${sceltaIniziale}`) {
         case "0-buono":
+            finaleImage.src = "/assets/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg";
             messaggio = "Hai scelto di non uccidere nessuno. Sei un vero eroe strafighissimo!";
             break;
         case "0-cattivo":
+            finaleImage.src = "/assets/q8eVQFs19rEyy8cWeWMXvST9LSBFp_1q.png";
             messaggio = "Hai scelto di partire come uno stronzo, ma non hai ucciso nessuno. Sei un BASTARDINO!";
             break;
         case "1-buono":
+            finaleImage.src = "/assets/vannacci-kn2E-U34602242779152D4C-656x492@Corriere-Web-Sezioni.jpg";
             messaggio = "Hai scelto di partire come buono e hai ucciso qualcuno. Sei un INFAME!";
             break;
         case "1-cattivo":
+            finaleImage.src = "/assets/1737496564521.jpg";
             messaggio = "Hai scelto di partire come stronzo e hai ucciso qualcuno. Sei uno SCALPER!";
             break;
         default:
