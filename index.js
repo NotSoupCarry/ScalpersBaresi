@@ -33,6 +33,7 @@ function choosePath(choice) {
 // Funzione per uccidere (incrementa il contatore delle kill)
 function commitKill() {
     kills++;
+    mostraFinale(kills, sceltaIniziale);
 }
 // Eventi per la scelta iniziale
 btnBuono.addEventListener("click", () => choosePath("buono"));

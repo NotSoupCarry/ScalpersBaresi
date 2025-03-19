@@ -40,6 +40,7 @@ function choosePath(choice: string): void {
 // Funzione per uccidere (incrementa il contatore delle kill)
 function commitKill(): void {
     kills++;
+    mostraFinale(kills, sceltaIniziale)
 }
 
 // Eventi per la scelta iniziale
