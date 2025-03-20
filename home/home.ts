@@ -46,11 +46,12 @@ function sleep() {
     imgSleep.style.display = "inline-block";
 
     setTimeout(() => {
+        imgSleep.style.display = "none";
         sleepText.textContent = "HAI RIPOSATO";
         setTimeout(() => {
             location.reload();
         }, 1000);
-    }, 5000);
+    }, 3000);
 }
 
 // Aggiungi event listener ai bottoni
