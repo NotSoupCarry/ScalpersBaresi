@@ -53,7 +53,7 @@ ScalpersBaresi/
 ### Avvio del Progetto
 1. Clona la repository:
    ```bash
-   git clone https://github.com/tuo-username/ScalpersBaresi.git
+   git clone https://github.com/NotSoupCarry/ScalpersBaresi
    ```
 2. Apri la cartella del progetto in **Visual Studio Code**.
 3. Avvia il server locale con l'estensione *Live Server* (porta configurata su `5501`).
@@ -68,8 +68,6 @@ tsc
 ## Contributi
 Contributi, segnalazioni di bug e suggerimenti sono benvenuti! Sentiti libero di aprire una *issue* o inviare una *pull request*.
 
-## Licenza
-Questo progetto è distribuito sotto la licenza **MIT**. Consulta il file `LICENSE` per maggiori dettagli.
 
 ## Autori
 Creato da **Scalpers Baresi Team**.
